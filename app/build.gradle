@@ -86,8 +86,7 @@ dependencies {
 
     implementation "io.reactivex.rxjava3:rxandroid:$rxJavaVer"
     implementation "io.reactivex.rxjava3:rxjava:$rxJavaVer"
-    implementation "com.squareup.retrofit2:adapter-rxjava:$retrofitVers"
-
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
     //glide
 
     implementation "com.github.bumptech.glide:glide:$glideVer"
