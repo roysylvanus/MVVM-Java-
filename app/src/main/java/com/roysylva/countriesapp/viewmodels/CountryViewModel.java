@@ -35,7 +35,12 @@ public class CountryViewModel extends ViewModel {
         countryList.add(country1);
         countryList.add(country2);
         countryList.add(country3);
-
+        countryList.add(country1);
+        countryList.add(country2);
+        countryList.add(country3);
+        countryList.add(country1);
+        countryList.add(country2);
+        countryList.add(country3);
         _countries.setValue(countryList);
         _countryLoadError.setValue(false);
         _loading.setValue(false);

@@ -15,8 +15,8 @@
             android:id="@+id/recyclerView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBaseline_toTopOf="parent"
-            android:layout_width="0dp"
-            android:layout_height="0dp"/>
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
         <TextView
             android:gravity="center"

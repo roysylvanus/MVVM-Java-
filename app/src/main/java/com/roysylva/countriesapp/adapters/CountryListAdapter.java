@@ -1,5 +1,6 @@
 package com.roysylva.countriesapp.adapters;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +34,7 @@ public class CountryListAdapter extends RecyclerView.Adapter<CountryListAdapter.
 
        holder.item.name.setText(countryModel.getCountryName());
        holder.item.capital.setText(countryModel.getCapital());
+        Log.e("Adapter",countryModel.getCountryName());
 
 
     }
