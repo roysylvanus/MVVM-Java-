@@ -37,7 +37,7 @@ def retrofitVers = '2.4.0'
 def glideVer = '4.9.0'
 def mockitoVer = '3.1.0'
 def daggerVer = '2.35.1'
-def rxJavaVer = '2.2.2'
+def rxJavaVer = '3.0.0'
 
 dependencies {
 
@@ -83,9 +83,9 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofitVers"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVers"
 
-    implementation "io.reactivex.rxjava2:rxandroid:$rxJavaVer"
-    implementation "io.reactivex.rxjava2:rxjava:$rxJavaVer"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVers"
+    implementation "io.reactivex.rxjava3:rxandroid:$rxJavaVer"
+    implementation "io.reactivex.rxjava3:rxjava:$rxJavaVer"
+    implementation "com.squareup.retrofit2:adapter-rxjava:$retrofitVers"
 
     //glide
 
