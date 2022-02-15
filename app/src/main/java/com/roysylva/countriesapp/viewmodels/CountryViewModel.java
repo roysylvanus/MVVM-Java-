@@ -4,11 +4,14 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.roysylva.countriesapp.di.DaggerApiComponent;
 import com.roysylva.countriesapp.models.CountryModel;
 import com.roysylva.countriesapp.repositories.CountryRespository;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Inject;
 
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableSingleObserver;
@@ -17,7 +20,10 @@ import io.reactivex.schedulers.Schedulers;
 
 public class CountryViewModel extends ViewModel {
 
-    private CountryRespository countryRespository = new CountryRespository();
+    @Inject
+    public CountryRespository countryRespository;
+
+
 
     private MutableLiveData<List<CountryModel>> _countries = new MutableLiveData<List<CountryModel>>();
     public LiveData<List<CountryModel>> countries = _countries;
@@ -30,6 +36,12 @@ public class CountryViewModel extends ViewModel {
     public LiveData<Boolean> countryLoadError = _countryLoadError;
 
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
+
+
+    public CountryViewModel(){
+        super();
+        DaggerApiComponent.create().inject(this);
+    }
 
 
     public void refreshFeed(){
