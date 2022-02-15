@@ -35,7 +35,7 @@ public class CountryViewModelTest {
     @InjectMocks
     CountryViewModel countryViewModel = new CountryViewModel();
 
-    private Single<List<CountryViewModel>> testSingle;
+    private Single<List<CountryModel>> testSingle;
 
     @Before
     public void setup(){
@@ -58,7 +58,7 @@ public class CountryViewModelTest {
     @Test
     public void getCountrySuccess(){
         CountryModel countryModel = new CountryModel("CountryName","Capiatl","flag");
-        ArrayList<CountryModel> countryList = new ArrayList<CountryModel>();
+        ArrayList<CountryModel> countryList = new ArrayList<>();
         countryList.add(countryModel);
 
         testSingle = Single.just(countryList);
