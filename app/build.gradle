@@ -84,8 +84,7 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofitVers"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVers"
 
-    implementation "io.reactivex.rxjava3:rxandroid:$rxJavaVer"
-    implementation "io.reactivex.rxjava3:rxjava:$rxJavaVer"
+
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
     //glide
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
