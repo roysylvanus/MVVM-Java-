@@ -22,9 +22,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
      ActivityMainBinding binding;
-    TextView textView;
-    ProgressBar progressBar;
-    RecyclerView recyclerView;
+
     private CountryViewModel countryViewModel;
     private CountryListAdapter adapter;
 
@@ -34,23 +32,21 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        progressBar = (ProgressBar) findViewById(R.id.loading_View);
-        textView = (TextView) findViewById(R.id.list_error);
 
         adapter = new CountryListAdapter(new ArrayList<>());
 
         countryViewModel = ViewModelProviders.of(this).get(CountryViewModel.class);
         countryViewModel.refreshFeed();
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapter);
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        binding.recyclerView.setAdapter(adapter);
+
+        binding.refreshLayout.setOnRefreshListener(()->{
+            countryViewModel.refreshFeed();
+            binding.refreshLayout.setRefreshing(false);
+        });
 
         observeViewModel();
-
-
-
-
 
 
     }
@@ -58,23 +54,23 @@ public class MainActivity extends AppCompatActivity {
     private void observeViewModel(){
         countryViewModel.countries.observe(this,countryModels -> {
             if (countryModels!=null){
-                recyclerView.setVisibility(View.VISIBLE);
+                binding.recyclerView.setVisibility(View.VISIBLE);
                 Log.e("Main",countryModels.toString());
                 adapter.updateCountries(countryModels);
             }
         });
         countryViewModel.countryLoadError.observe(this, isError ->{
             if (isError!=null){
-                textView.setVisibility(isError? View.VISIBLE :View.GONE);
+                binding.listError.setVisibility(isError? View.VISIBLE :View.GONE);
             }
         });
         countryViewModel.loading.observe(this,isLoading ->{
             if (isLoading!=null){
-                progressBar.setVisibility(isLoading? View.VISIBLE : View.GONE);
+                binding.loadingView.setVisibility(isLoading? View.VISIBLE : View.GONE);
 
                 if (isLoading){
-                    textView.setVisibility(View.GONE);
-                    recyclerView.setVisibility(View.GONE);
+                    binding.listError.setVisibility(View.GONE);
+                    binding.recyclerView.setVisibility(View.GONE);
                 }
             }
         });
