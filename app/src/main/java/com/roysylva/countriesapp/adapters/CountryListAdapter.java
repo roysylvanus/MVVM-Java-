@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.roysylva.countriesapp.R;
 import com.roysylva.countriesapp.databinding.ItemCountryBinding;
 import com.roysylva.countriesapp.models.CountryModel;
+import com.roysylva.countriesapp.utils.AppUtils;
 
 import java.util.List;
 
@@ -35,6 +36,7 @@ public class CountryListAdapter extends RecyclerView.Adapter<CountryListAdapter.
        holder.item.name.setText(countryModel.getCountryName());
        holder.item.capital.setText(countryModel.getCapital());
         Log.e("Adapter",countryModel.getCountryName());
+        AppUtils.loadImage(holder.item.imageView, countryModel.getFlag(),AppUtils.getProgressDrawable(holder.item.imageView.getContext()));
 
 
     }
