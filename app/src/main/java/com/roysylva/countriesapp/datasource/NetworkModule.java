@@ -5,7 +5,7 @@ import com.roysylva.countriesapp.viewmodels.Constants;
 
 import java.util.List;
 
-import io.reactivex.rxjava3.core.Single;
+import io.reactivex.Single;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -13,6 +13,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class NetworkModule {
 
     private static NetworkModule instance;
+
+    private NetworkModule(){}
 
     private ApiService apiService = new Retrofit.Builder()
             .baseUrl(Constants.BASE_URL)

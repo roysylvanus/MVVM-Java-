@@ -6,7 +6,8 @@ import com.roysylva.countriesapp.models.CountryModel;
 
 import java.util.List;
 
-import io.reactivex.rxjava3.core.Single;
+import io.reactivex.Single;
+
 
 public class CountryRespository {
 
